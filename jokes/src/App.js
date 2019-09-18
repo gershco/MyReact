@@ -1,31 +1,14 @@
 import React from "react";
 import Joke from "./Joke";
+import jokesData from "./jokesData";
 import "./style.css";
 
 function App() {
-  return (
-    <div>
-      <Joke
-        joke={{
-          question: "What is black and white and red all over?",
-          punchLine: "A sunburned penguin!"
-        }}
-      />
+  const jokeComponents = jokesData.map(joke => (
+    <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />
+  ));
 
-      <Joke
-        joke={{
-          punchLine: "I hate Russian dolls, they're so full of themselves!"
-        }}
-      />
-
-      <Joke
-        joke={{
-          punchLine:
-            "I recently decided to sell my vacuum cleaner as all it was doing was gathering dust!"
-        }}
-      />
-    </div>
-  );
+  return <div>{jokeComponents}</div>;
 }
 
 export default App;
