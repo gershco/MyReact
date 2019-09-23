@@ -1,12 +1,27 @@
 import React from "react";
 
-function ToDoItem() {
+function LineInput(props) {
+
+function ToDoItem(props) {
+
   return (
     <div className="to-do-item">
-      <input type="checkbox" />
-      <p>Go shopping.</p>
+
+
+
+      <LineInput />
+      <p>{props.task.text}</p>
     </div>
   );
+}
+
+if ( props.task.completed ) {
+
+    return <input type="checkbox" selected />
+
+} else {
+
+return <input type="checkbox" />
 }
 
 export default ToDoItem;
